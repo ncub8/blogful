@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>
+    {{ post.title }}
+</h1>
+<p class="text-muted"> {{ post.datetime | dateformat("%m/%d/%y") }} </p>
+<div class="post">
+    {{ post.content | safe }}
+</div>
+{% endblock %}
