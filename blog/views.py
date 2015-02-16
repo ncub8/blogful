@@ -42,7 +42,30 @@ def add_post_post():
     session.commit()
     return redirect(url_for("posts"))
 
+
 @app.route("/post/<int:postid>")
 def show(postid=1):
     post = session.query(Post).filter(Post.id==postid).first()
     return render_template("post.html", post=post)
+
+
+@app.route("/post/<int:postid>/edit", methods=["GET"])
+def edit(postid):
+    post = session.query(Post).filter(Post.id==postid).first()
+    return render_template("edit_post.html", post=post)
+
+
+@app.route("/post/<int:postid>/edit", methods=["POST"])
+def edit_complete(postid):
+    post = session.query(Post).filter(Post.id==postid).first()
+    post.title=request.form["title"],
+    post.content=mistune.markdown(request.form["content"]),
+    session.commit()
+    return redirect(url_for("posts"))
+
+
+@app.route("/post/<int:postid>/delete")
+def delete_post(postid):
+    post = session.query(Post).filter(Post.id==postid).delete()
+    session.commit()
+    return redirect(url_for("posts"))

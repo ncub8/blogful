@@ -1,3 +1,5 @@
+#! /usr/local/bin/python
+
 import os
 from flask.ext.script import Manager
 
