@@ -36,7 +36,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         
                         {% if current_user.is_authenticated() %}
-                        <li><a href="/post/add">Add Post</a></li>
+                        <li><a id="addPost" href="/post/add">Add Post</a></li>
                         <li><a href="/logout">Log Out</a></li>
                         {% else %}
                         <li><a href="/login">Log In</a></li>
