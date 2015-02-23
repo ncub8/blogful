@@ -1,0 +1,2 @@
+# blogful
+basic Python blog
