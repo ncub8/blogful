@@ -7,3 +7,4 @@ app.config.from_object(config_path)
 
 import views
 import filter
+from . import login
